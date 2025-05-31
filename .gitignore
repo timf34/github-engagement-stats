@@ -1,0 +1,7 @@
+# Byte-code & editor cruft
+__pycache__/
+*.py[cod]
+*.swp
+.idea/
+.vscode/
+.env

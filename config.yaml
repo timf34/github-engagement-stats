@@ -1,0 +1,3 @@
+# List repositories under the "repositories" key OR simply use TARGET_REPOS env-var.
+repositories:
+  - timf34/Substack2Markdown

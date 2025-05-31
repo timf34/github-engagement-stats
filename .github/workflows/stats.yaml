@@ -1,0 +1,36 @@
+name: 📊 GitHub traffic snapshot
+
+on:
+  schedule:
+    - cron: "7 0 * * *"    # daily at 00:07 UTC
+  workflow_dispatch:
+    inputs:
+      repos:
+        description: "Comma-separated list owner/repo, overrides config.yml"
+        required: false
+        type: string
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write        # allow committing CSV back
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 📈 Run collector
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TARGET_REPOS: ${{ github.event.inputs.repos || vars.TARGET_REPOS || '' }}
+        run: |
+          echo "TARGET_REPOS='${TARGET_REPOS}'"
+          python fetch_stats.py --commit
+
+      - name: 🚀 Push (if commit created)
+        run: |
+          git push || echo "Nothing to push"
