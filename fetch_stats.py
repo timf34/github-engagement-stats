@@ -12,7 +12,7 @@ import sys
 from pathlib import Path
 from typing import Dict, List
 
-from collectors.github import collect_repo
+from collectors.github import collect_repo, discover_repos
 from utils.git_utils import commit_if_changes
 
 ROOT      = Path(__file__).resolve().parent
@@ -34,21 +34,6 @@ def _parse_config_file() -> List[str]:
         if line.startswith("- "):
             repos.append(line[2:].strip())
     return repos
-
-
-def get_target_repos() -> List[str]:
-    """Env var > config.yml > current repo (GITHUB_REPOSITORY)."""
-    env = os.getenv("TARGET_REPOS")
-    if env:
-        return [r.strip() for r in env.split(",") if r.strip()]
-    cfg = _parse_config_file()
-    if cfg:
-        return cfg
-    current = os.getenv("GITHUB_REPOSITORY")
-    if current:
-        return [current]
-    raise SystemExit("❌ No TARGET_REPOS and no config.yml – nothing to do")
-
 
 # --------------------------------------------------------------------------- #
 # CSV storage
@@ -84,6 +69,42 @@ def _save_row(row: Dict, repo_full: str) -> bool:
         writer.writerow(row)
     return True
 
+def get_target_repos(token: str) -> List[str]:
+    """
+    Build the final repo list (duplicates removed):
+
+      • TARGET_REPOS env-var              ← always wins if set
+      • entries in config.yml
+      • auto-discovery (default **ON**)
+      • current repo (GITHUB_REPOSITORY)  ← absolute fallback
+    """
+    explicit = [
+        r.strip() for r in os.getenv("TARGET_REPOS", "").split(",") if r.strip()
+    ]
+
+    from_cfg = _parse_config_file()
+
+    auto_on   = os.getenv("DISABLE_AUTODISCOVER", "").lower() not in ("1", "true")
+    min_stars = int(os.getenv("MIN_STARS", "3"))
+
+    discovered: List[str] = []
+    if auto_on:
+        owner_hint = (os.getenv("GITHUB_REPOSITORY") or "/").split("/")[0] or None
+        try:
+            discovered = discover_repos(owner_hint, token, min_stars)
+        except Exception as exc:  # noqa: BLE001
+            print(f"⚠️  Auto-discover failed: {exc}")
+
+    # Merge all three sources, in priority order
+    combined = explicit + from_cfg + discovered
+    if not combined:  # very last resort
+        fallback = os.getenv("GITHUB_REPOSITORY")
+        if fallback:
+            combined = [fallback]
+
+    return sorted(set(combined))
+
+
 
 # --------------------------------------------------------------------------- #
 # Main
@@ -93,7 +114,7 @@ def main() -> None:
     if not token:
         raise SystemExit("❌ GITHUB_TOKEN is required (provided automatically in Actions)")
 
-    repos = get_target_repos()
+    repos = get_target_repos(token)
     print(f"📈 Collecting stats for {', '.join(repos)}")
 
     new_rows = 0

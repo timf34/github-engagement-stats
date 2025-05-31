@@ -98,3 +98,44 @@ def collect_repo(full_name: str, token: str) -> Dict:
         "views"         : views,
         "unique_views"  : u_views,
     }
+
+# --------------------------------------------------------------------------- #
+# Repo-discovery helpers  
+# --------------------------------------------------------------------------- #
+def _paginate(endpoint: str, token: str) -> List[Dict]:
+    """Return a full list from any paginated GitHub REST endpoint."""
+    items, page = [], 1
+    while True:
+        chunk = _request(f"{endpoint}?per_page=100&page={page}", token)
+        items.extend(chunk)
+        if len(chunk) < 100:     # last page
+            break
+        page += 1
+    return items
+
+
+def discover_repos(owner: str | None, token: str, min_stars: int = 3) -> List[str]:
+    """
+    Return ['owner/repo', …] for every *public* repo that
+    1. belongs to <owner>  –OR–  if <owner> is falsy, belongs to the
+       account tied to the token (GET /user) and
+    2. has at least <min_stars> stars.
+    """
+    if not owner:  # local run where GITHUB_REPOSITORY is absent
+        owner = _request("/user", token)["login"]
+
+    # try personal account first
+    try:
+        raw = _paginate(f"/users/{owner}/repos", token)
+    except urllib.error.HTTPError as err:
+        if err.code != 404:
+            raise
+        # maybe an organisation
+        raw = _paginate(f"/orgs/{owner}/repos", token)
+
+    return [
+        f"{owner}/{repo['name']}"
+        for repo in raw
+        if not repo.get("private")
+        and repo.get("stargazers_count", 0) >= min_stars
+    ]
