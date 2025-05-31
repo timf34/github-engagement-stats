@@ -1,0 +1,39 @@
+name: "GitHub Engagement Stats"
+description: "Track stars, views, and clones across all your public GitHub repos and auto-generate a Markdown report."
+author: "Tim Farrelly"
+branding:
+  icon: "bar-chart-2"
+  color: "blue"
+
+inputs:
+  token:
+    description: "GitHub token with public_repo scope"
+    required: true
+  target_repos:
+    description: "Comma-separated list of repos (e.g., timf34/repo1,timf34/repo2)"
+    required: false
+  min_stars:
+    description: "Minimum number of stars for repo auto-discovery"
+    required: false
+    default: "2"
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v4
+
+    - uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+
+    - name: Run fetch_stats
+      run: python fetch_stats.py --commit
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ inputs.token }}
+        TARGET_REPOS: ${{ inputs.target_repos }}
+        MIN_STARS: ${{ inputs.min_stars }}
+
+    - name: Generate markdown report
+      run: python generate_report.py
+      shell: bash
