@@ -27,11 +27,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TARGET_REPOS: ${{ github.event.inputs.repos || vars.TARGET_REPOS || '' }}
-          AUTO_DISCOVER: ${{ vars.AUTO_DISCOVER || 'true' }}
-          MIN_STARS    : ${{ vars.MIN_STARS    || '3'   }}
+          MIN_STARS    : ${{ vars.MIN_STARS    || '2'   }}
         run: |
           echo "TARGET_REPOS='${TARGET_REPOS}'"
           python fetch_stats.py --commit
+      
+      - name: 📝 Build markdown dashboard
+        run: |
+          python generate_report.py
+          git add stats.md
 
       - name: 🚀 Push (if commit created)
         run: |
