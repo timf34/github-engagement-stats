@@ -1,6 +1,7 @@
 # 📊 GitHub Engagement Stats
 
-**Nightly, dependency-free snapshots of ⭐ stars, 👁 views and 📥 clones for all your public repos – zero set-up.**
+**Nightly, dependency-free snapshots of ⭐ stars, 👁 views and 📥 clones for all your public repos – zero set-up.**  
+Also auto-generates a clean Markdown report with totals and per-repo breakdowns: [**see example ›**](stats.md)
 
 *By default the action discovers every public repo you own that has **≥ 2 stars**.  
 Want to track a different set? Just tell it!*
@@ -17,6 +18,8 @@ Want to track a different set? Just tell it!*
      `owner1/repoA,owner2/repoB` (adds or replaces the auto list).
 
 That’s it. The workflow runs every night at 00:07 UTC and appends one row per repo to `/data/*.csv`.  
+It also builds `/stats.md` as a lightweight dashboard of total/lifetime stats.
+
 Run it straight away via **Actions → “📊 GitHub traffic snapshot” → Run workflow** if you don’t want to wait.
 
 ---
