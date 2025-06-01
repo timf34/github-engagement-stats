@@ -50,3 +50,6 @@ export TARGET_REPOS=you/special-repo
 
 # 3.  Snapshot!
 python fetch_stats.py           # add --commit to create a local git commit
+
+# 4. Generate your markdown report 
+python generate_report.py
