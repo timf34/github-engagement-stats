@@ -26,7 +26,6 @@ jobs:
       - name: 📈 Run collector
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TARGET_REPOS: ${{ github.event.inputs.repos || vars.TARGET_REPOS || '' }}
           MIN_STARS    : ${{ vars.MIN_STARS    || '2'   }}
         run: |
           echo "TARGET_REPOS='${TARGET_REPOS}'"
