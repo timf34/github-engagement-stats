@@ -31,7 +31,6 @@ runs:
       shell: bash
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
-        TARGET_REPOS: ${{ inputs.target_repos }}
         MIN_STARS: ${{ inputs.min_stars }}
 
     - name: Generate markdown report
