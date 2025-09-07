@@ -114,6 +114,10 @@ def main() -> None:
     if not token:
         raise SystemExit("❌ GITHUB_TOKEN is required (provided automatically in Actions)")
 
+    if os.getenv("GITHUB_ACTIONS") and os.getenv("GITHUB_REPOSITORY"):
+        print("ℹ️  Running in GitHub Actions")
+        print("   If cross-repo traffic stats are 0/403, set a PAT in secrets.PUBLIC_REPOS_TOKEN.")
+
     repos = get_target_repos(token)
     print(f"📈 Collecting stats for {', '.join(repos)}")
 

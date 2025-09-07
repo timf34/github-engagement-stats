@@ -25,10 +25,11 @@ jobs:
 
       - name: 📈 Run collector
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PUBLIC_REPOS_TOKEN || secrets.GITHUB_TOKEN }}
           MIN_STARS    : ${{ vars.MIN_STARS    || '2'   }}
+          TARGET_REPOS : ${{ inputs.repos || vars.TARGET_REPOS || '' }}
         run: |
-          echo "TARGET_REPOS='${TARGET_REPOS}'"
+          echo "Repos override: ${TARGET_REPOS}"
           python fetch_stats.py --commit
       
       - name: 📝 Build markdown dashboard

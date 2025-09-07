@@ -38,13 +38,29 @@ def _request(endpoint: str, token: str) -> Dict:
         with urllib.request.urlopen(req, timeout=30) as resp:
             return json.loads(resp.read().decode())
     except urllib.error.HTTPError as err:
-        # Soft-retry on secondary rate-limit (status 403 + special header)
-        if err.code == 403 and err.headers.get("X-RateLimit-Reset"):
-            reset = int(err.headers["X-RateLimit-Reset"])
-            sleep_for = max(0, reset - int(time.time()) + 1)
-            time.sleep(sleep_for)
-            with urllib.request.urlopen(req, timeout=30) as resp:
-                return json.loads(resp.read().decode())
+        if err.code == 403:
+            remaining = err.headers.get("X-RateLimit-Remaining")
+            retry_after = err.headers.get("Retry-After")
+            reset_hdr = err.headers.get("X-RateLimit-Reset")
+            is_rate_limited = (remaining == "0") or (retry_after is not None)
+            if is_rate_limited:
+                sleep_for = 0
+                if retry_after is not None:
+                    try:
+                        sleep_for = int(retry_after)
+                    except ValueError:
+                        sleep_for = 0
+                elif reset_hdr:
+                    try:
+                        reset = int(reset_hdr)
+                        sleep_for = max(0, reset - int(time.time()) + 1)
+                    except ValueError:
+                        sleep_for = 0
+                sleep_for = min(sleep_for, 60)
+                if sleep_for:
+                    time.sleep(sleep_for)
+                    with urllib.request.urlopen(req, timeout=30) as resp:
+                        return json.loads(resp.read().decode())
         raise
 
 
