@@ -12,10 +12,13 @@ Want to track a different set? Just tell it!*
 
 1. **Fork** this repo to your personal account or org.  
 2. Enable **Actions** when GitHub prompts you.  
-3. *(Optional)* Open **Settings → Variables** and tweak:  
-   * `MIN_STARS` – raise/lower the auto-discover threshold (default **2**).  
-   * `TARGET_REPOS` – comma-separated list like  
+3. *(Optional)* Open **Settings → Variables** and tweak:
+   * `MIN_STARS` – raise/lower the auto-discover threshold (default **2**).
+   * `TARGET_REPOS` – comma-separated list like
      `owner1/repoA,owner2/repoB` (adds or replaces the auto list).
+4. *(Optional)* Add a Personal Access Token with `public_repo` scope as
+   secret **PUBLIC_REPOS_TOKEN** if you want to collect traffic stats for
+   other repositories you own.
 
 That’s it. The workflow runs every night at 00:07 UTC and appends one row per repo to `/data/*.csv`.  
 It also builds `/stats.md` as a lightweight dashboard of total/lifetime stats.
@@ -29,9 +32,11 @@ Run it straight away via **Actions → “📊 GitHub traffic snapshot” → Ru
 * **Track only certain repos** – set `TARGET_REPOS` (auto-discover still runs but the explicit list wins).  
 * **Include extra repos** – keep `TARGET_REPOS` empty and list them in `config.yml` instead; they’ll be *added* to the discovered set.  
 * **Change the schedule** – edit the `cron:` line in `.github/workflows/stats.yml`.  
-* **Stop committing from CI** – remove `--commit` in that same workflow step.
+* **Stop committing from CI** – remove the final commit step in the workflow.
 
-All configuration lives in **repo settings** – no secrets needed unless you push to other repos.
+All configuration lives in **repo settings**. The workflow uses
+`secrets.PUBLIC_REPOS_TOKEN` when present; otherwise it falls back to the
+default `GITHUB_TOKEN`, which can only see the current repository's traffic.
 
 ---
 
@@ -49,7 +54,7 @@ export MIN_STARS=1
 export TARGET_REPOS=you/special-repo
 
 # 3.  Snapshot!
-python fetch_stats.py           # add --commit to create a local git commit
+python fetch_stats.py
 
-# 4. Generate your markdown report 
+# 4. Generate your markdown report
 python generate_report.py

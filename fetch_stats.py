@@ -13,7 +13,6 @@ from pathlib import Path
 from typing import Dict, List
 
 from collectors.github import collect_repo, discover_repos
-from utils.git_utils import commit_if_changes
 
 ROOT      = Path(__file__).resolve().parent
 DATA_DIR  = ROOT / "data"
@@ -114,6 +113,10 @@ def main() -> None:
     if not token:
         raise SystemExit("❌ GITHUB_TOKEN is required (provided automatically in Actions)")
 
+    if os.getenv("GITHUB_ACTIONS") and os.getenv("GITHUB_REPOSITORY"):
+        print("ℹ️  Running in GitHub Actions")
+        print("   If cross-repo traffic stats are 0/403, set a PAT in secrets.PUBLIC_REPOS_TOKEN.")
+
     repos = get_target_repos(token)
     print(f"📈 Collecting stats for {', '.join(repos)}")
 
@@ -129,10 +132,6 @@ def main() -> None:
                 print(f"ℹ️  {full}: already had today’s snapshot")
         except Exception as exc:  # noqa: BLE001
             print(f"❌ {full}: {exc}")
-
-    # Commit if run with --commit and something changed
-    if "--commit" in sys.argv and new_rows:
-        commit_if_changes()
 
     # Non-zero exit if any repo failed
     if new_rows == 0:

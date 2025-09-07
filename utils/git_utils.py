@@ -11,9 +11,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 
 
-def commit_if_changes(msg: str = "chore: update traffic data") -> None:
-    """Stage everything under data/ and commit if the tree is dirty."""
-    subprocess.run(["git", "add", "data"], cwd=ROOT, check=True)
+def commit_if_changes(msg: str = "chore: update stats snapshot") -> None:
+    """Stage CSV data and stats.md, then commit if the tree is dirty."""
+    subprocess.run(["git", "add", "data", "stats.md"], cwd=ROOT, check=True)
     dirty = subprocess.run(
         ["git", "diff", "--cached", "--quiet"],
         cwd=ROOT,

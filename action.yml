@@ -27,12 +27,21 @@ runs:
         python-version: "3.12"
 
     - name: Run fetch_stats
-      run: python fetch_stats.py --commit
+      run: python fetch_stats.py
       shell: bash
       env:
         GITHUB_TOKEN: ${{ inputs.token }}
         MIN_STARS: ${{ inputs.min_stars }}
+        TARGET_REPOS: ${{ inputs.target_repos }}
 
     - name: Generate markdown report
       run: python generate_report.py
+      shell: bash
+
+    - name: Commit snapshot
+      run: |
+        python - <<'PY'
+        from utils.git_utils import commit_if_changes
+        commit_if_changes()
+        PY
       shell: bash
