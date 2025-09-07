@@ -13,7 +13,6 @@ from pathlib import Path
 from typing import Dict, List
 
 from collectors.github import collect_repo, discover_repos
-from utils.git_utils import commit_if_changes
 
 ROOT      = Path(__file__).resolve().parent
 DATA_DIR  = ROOT / "data"
@@ -133,10 +132,6 @@ def main() -> None:
                 print(f"ℹ️  {full}: already had today’s snapshot")
         except Exception as exc:  # noqa: BLE001
             print(f"❌ {full}: {exc}")
-
-    # Commit if run with --commit and something changed
-    if "--commit" in sys.argv and new_rows:
-        commit_if_changes()
 
     # Non-zero exit if any repo failed
     if new_rows == 0:

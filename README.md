@@ -32,7 +32,7 @@ Run it straight away via **Actions → “📊 GitHub traffic snapshot” → Ru
 * **Track only certain repos** – set `TARGET_REPOS` (auto-discover still runs but the explicit list wins).  
 * **Include extra repos** – keep `TARGET_REPOS` empty and list them in `config.yml` instead; they’ll be *added* to the discovered set.  
 * **Change the schedule** – edit the `cron:` line in `.github/workflows/stats.yml`.  
-* **Stop committing from CI** – remove `--commit` in that same workflow step.
+* **Stop committing from CI** – remove the final commit step in the workflow.
 
 All configuration lives in **repo settings**. The workflow uses
 `secrets.PUBLIC_REPOS_TOKEN` when present; otherwise it falls back to the
@@ -54,7 +54,7 @@ export MIN_STARS=1
 export TARGET_REPOS=you/special-repo
 
 # 3.  Snapshot!
-python fetch_stats.py           # add --commit to create a local git commit
+python fetch_stats.py
 
 # 4. Generate your markdown report
 python generate_report.py
