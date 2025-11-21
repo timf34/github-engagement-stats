@@ -1,6 +1,6 @@
 # 📊 GitHub stats snapshot
 
-**Last run:** 2025-11-20
+**Last run:** 2025-11-21
 
 | metric | last 30 d | last 12 mo | lifetime |
 |--------|---------:|-----------:|---------:|
