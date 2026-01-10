@@ -1,10 +1,10 @@
 # 📊 GitHub stats snapshot
 
-**Last run:** 2026-01-09
+**Last run:** 2026-01-10
 
 | metric | last 30 d | last 12 mo | lifetime |
 |--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +41 | +166 | 497 |
+| ⭐ stars (total) | +42 | +167 | 501 |
 | 👁 views        | 0 | 57 | 57 |
 | 📥 clones       | 0 | 18 | 18 |
 
@@ -104,7 +104,7 @@
 
 | metric | last 30 d | last 12 mo | lifetime |
 |--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +22 | +140 | 366 |
+| ⭐ stars (total) | +23 | +141 | 367 |
 | 👁 views        | 0 | 47 | 47 |
 | 📥 clones       | 0 | 3 | 3 |
 
@@ -135,6 +135,16 @@
 | metric | last 30 d | last 12 mo | lifetime |
 |--------|---------:|-----------:|---------:|
 | ⭐ stars (total) | +0 | +0 | 2 |
+| 👁 views        | 0 | 0 | 0 |
+| 📥 clones       | 0 | 0 | 0 |
+
+---
+
+### `timf34/arxiv2md`
+
+| metric | last 30 d | last 12 mo | lifetime |
+|--------|---------:|-----------:|---------:|
+| ⭐ stars (total) | +0 | +0 | 3 |
 | 👁 views        | 0 | 0 | 0 |
 | 📥 clones       | 0 | 0 | 0 |
 
