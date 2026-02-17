@@ -100,6 +100,9 @@ def collect_repo(full_name: str, token: str) -> Dict:
         # If traffic endpoints are unavailable (e.g. repo is a fork),
         # still record stars and zeroes for traffic.
         if err.code in (403, 404):
+            print(f"⚠️  Traffic API returned {err.code} for {full_name} – "
+                  "views/clones will be 0. "
+                  "Ensure TRAFFIC_TOKEN secret is a PAT with 'repo' scope.")
             clones = u_clones = views = u_views = 0
         else:
             raise

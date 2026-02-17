@@ -109,9 +109,9 @@ def get_target_repos(token: str) -> List[str]:
 # Main
 # --------------------------------------------------------------------------- #
 def main() -> None:
-    token = os.getenv("GITHUB_TOKEN")
+    token = os.getenv("GITHUB_TOKEN") or os.getenv("TRAFFIC_TOKEN")
     if not token:
-        raise SystemExit("❌ GITHUB_TOKEN is required (provided automatically in Actions)")
+        raise SystemExit("❌ GITHUB_TOKEN or TRAFFIC_TOKEN is required (provided automatically in Actions)")
 
     if os.getenv("GITHUB_ACTIONS") and os.getenv("GITHUB_REPOSITORY"):
         print("ℹ️  Running in GitHub Actions")
