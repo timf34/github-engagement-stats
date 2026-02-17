@@ -1,12 +1,12 @@
 # 📊 GitHub stats snapshot
 
-**Last run:** 2025-05-31
+**Last run:** 2026-02-17
 
 | metric | last 30 d | last 12 mo | lifetime |
 |--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +0 | +0 | 294 |
-| 👁 views        | 0 | 57 | 57 |
-| 📥 clones       | 0 | 18 | 18 |
+| ⭐ stars (total) | +254 | +533 | 869 |
+| 👁 views        | 42 | 99 | 99 |
+| 📥 clones       | 35 | 53 | 53 |
 
 ---
 
@@ -14,9 +14,9 @@
 
 | metric | last 30 d | last 12 mo | lifetime |
 |--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +0 | +0 | 9 |
+| ⭐ stars (total) | +1 | +1 | 10 |
 | 👁 views        | 0 | 5 | 5 |
-| 📥 clones       | 0 | 1 | 1 |
+| 📥 clones       | 1 | 2 | 2 |
 
 ---
 
@@ -24,8 +24,8 @@
 
 | metric | last 30 d | last 12 mo | lifetime |
 |--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +0 | +0 | 6 |
-| 👁 views        | 0 | 1 | 1 |
+| ⭐ stars (total) | +1 | +1 | 7 |
+| 👁 views        | 1 | 2 | 2 |
 | 📥 clones       | 0 | 0 | 0 |
 
 ---
@@ -36,6 +36,16 @@
 |--------|---------:|-----------:|---------:|
 | ⭐ stars (total) | +0 | +0 | 3 |
 | 👁 views        | 0 | 1 | 1 |
+| 📥 clones       | 0 | 0 | 0 |
+
+---
+
+### `timf34/HackIreland`
+
+| metric | last 30 d | last 12 mo | lifetime |
+|--------|---------:|-----------:|---------:|
+| ⭐ stars (total) | +0 | +0 | 3 |
+| 👁 views        | 0 | 0 | 0 |
 | 📥 clones       | 0 | 0 | 0 |
 
 ---
@@ -54,8 +64,18 @@
 
 | metric | last 30 d | last 12 mo | lifetime |
 |--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +0 | +0 | 23 |
+| ⭐ stars (total) | +4 | +4 | 27 |
 | 👁 views        | 0 | 2 | 2 |
+| 📥 clones       | 0 | 0 | 0 |
+
+---
+
+### `timf34/JoinTECS`
+
+| metric | last 30 d | last 12 mo | lifetime |
+|--------|---------:|-----------:|---------:|
+| ⭐ stars (total) | +0 | +0 | 2 |
+| 👁 views        | 0 | 0 | 0 |
 | 📥 clones       | 0 | 0 | 0 |
 
 ---
@@ -64,9 +84,19 @@
 
 | metric | last 30 d | last 12 mo | lifetime |
 |--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +0 | +0 | 12 |
+| ⭐ stars (total) | +2 | +2 | 14 |
 | 👁 views        | 0 | 1 | 1 |
-| 📥 clones       | 0 | 12 | 12 |
+| 📥 clones       | 2 | 14 | 14 |
+
+---
+
+### `timf34/StainedGlassMap`
+
+| metric | last 30 d | last 12 mo | lifetime |
+|--------|---------:|-----------:|---------:|
+| ⭐ stars (total) | +0 | +0 | 2 |
+| 👁 views        | 0 | 0 | 0 |
+| 📥 clones       | 0 | 0 | 0 |
 
 ---
 
@@ -74,9 +104,19 @@
 
 | metric | last 30 d | last 12 mo | lifetime |
 |--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +0 | +0 | 226 |
-| 👁 views        | 0 | 47 | 47 |
-| 📥 clones       | 0 | 3 | 3 |
+| ⭐ stars (total) | +158 | +158 | 384 |
+| 👁 views        | 31 | 78 | 78 |
+| 📥 clones       | 11 | 14 | 14 |
+
+---
+
+### `timf34/UnifiedOpenAccessArt`
+
+| metric | last 30 d | last 12 mo | lifetime |
+|--------|---------:|-----------:|---------:|
+| ⭐ stars (total) | +0 | +0 | 2 |
+| 👁 views        | 0 | 0 | 0 |
+| 📥 clones       | 0 | 0 | 0 |
 
 ---
 
@@ -87,3 +127,73 @@
 | ⭐ stars (total) | +0 | +0 | 3 |
 | 👁 views        | 0 | 0 | 0 |
 | 📥 clones       | 0 | 1 | 1 |
+
+---
+
+### `timf34/YouTubeSortByLikes`
+
+| metric | last 30 d | last 12 mo | lifetime |
+|--------|---------:|-----------:|---------:|
+| ⭐ stars (total) | +0 | +0 | 2 |
+| 👁 views        | 0 | 0 | 0 |
+| 📥 clones       | 0 | 0 | 0 |
+
+---
+
+### `timf34/arxiv2md`
+
+| metric | last 30 d | last 12 mo | lifetime |
+|--------|---------:|-----------:|---------:|
+| ⭐ stars (total) | +13 | +70 | 73 |
+| 👁 views        | 3 | 3 | 3 |
+| 📥 clones       | 5 | 5 | 5 |
+
+---
+
+### `timf34/ball-position-tracker`
+
+| metric | last 30 d | last 12 mo | lifetime |
+|--------|---------:|-----------:|---------:|
+| ⭐ stars (total) | +0 | +0 | 0 |
+| 👁 views        | 1 | 1 | 1 |
+| 📥 clones       | 1 | 1 | 1 |
+
+---
+
+### `timf34/github-engagement-stats`
+
+| metric | last 30 d | last 12 mo | lifetime |
+|--------|---------:|-----------:|---------:|
+| ⭐ stars (total) | +1 | +2 | 5 |
+| 👁 views        | 0 | 0 | 0 |
+| 📥 clones       | 10 | 10 | 10 |
+
+---
+
+### `timf34/pagesource`
+
+| metric | last 30 d | last 12 mo | lifetime |
+|--------|---------:|-----------:|---------:|
+| ⭐ stars (total) | +74 | +295 | 316 |
+| 👁 views        | 6 | 6 | 6 |
+| 📥 clones       | 5 | 5 | 5 |
+
+---
+
+### `timf34/podscript`
+
+| metric | last 30 d | last 12 mo | lifetime |
+|--------|---------:|-----------:|---------:|
+| ⭐ stars (total) | +0 | +0 | 2 |
+| 👁 views        | 0 | 0 | 0 |
+| 📥 clones       | 0 | 0 | 0 |
+
+---
+
+### `timf34/timf34.github.io`
+
+| metric | last 30 d | last 12 mo | lifetime |
+|--------|---------:|-----------:|---------:|
+| ⭐ stars (total) | +0 | +0 | 2 |
+| 👁 views        | 0 | 0 | 0 |
+| 📥 clones       | 0 | 0 | 0 |
