@@ -1,10 +1,10 @@
 # 📊 GitHub stats snapshot
 
-**Last run:** 2026-02-17
+**Last run:** 2025-05-31
 
 | metric | last 30 d | last 12 mo | lifetime |
 |--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +105 | +533 | 867 |
+| ⭐ stars (total) | +0 | +0 | 294 |
 | 👁 views        | 0 | 57 | 57 |
 | 📥 clones       | 0 | 18 | 18 |
 
@@ -14,7 +14,7 @@
 
 | metric | last 30 d | last 12 mo | lifetime |
 |--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +0 | +1 | 10 |
+| ⭐ stars (total) | +0 | +0 | 9 |
 | 👁 views        | 0 | 5 | 5 |
 | 📥 clones       | 0 | 1 | 1 |
 
@@ -24,7 +24,7 @@
 
 | metric | last 30 d | last 12 mo | lifetime |
 |--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +0 | +1 | 7 |
+| ⭐ stars (total) | +0 | +0 | 6 |
 | 👁 views        | 0 | 1 | 1 |
 | 📥 clones       | 0 | 0 | 0 |
 
@@ -36,16 +36,6 @@
 |--------|---------:|-----------:|---------:|
 | ⭐ stars (total) | +0 | +0 | 3 |
 | 👁 views        | 0 | 1 | 1 |
-| 📥 clones       | 0 | 0 | 0 |
-
----
-
-### `timf34/HackIreland`
-
-| metric | last 30 d | last 12 mo | lifetime |
-|--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +0 | +0 | 3 |
-| 👁 views        | 0 | 0 | 0 |
 | 📥 clones       | 0 | 0 | 0 |
 
 ---
@@ -64,18 +54,8 @@
 
 | metric | last 30 d | last 12 mo | lifetime |
 |--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +0 | +4 | 27 |
+| ⭐ stars (total) | +0 | +0 | 23 |
 | 👁 views        | 0 | 2 | 2 |
-| 📥 clones       | 0 | 0 | 0 |
-
----
-
-### `timf34/JoinTECS`
-
-| metric | last 30 d | last 12 mo | lifetime |
-|--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +0 | +0 | 2 |
-| 👁 views        | 0 | 0 | 0 |
 | 📥 clones       | 0 | 0 | 0 |
 
 ---
@@ -84,19 +64,9 @@
 
 | metric | last 30 d | last 12 mo | lifetime |
 |--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +1 | +2 | 14 |
+| ⭐ stars (total) | +0 | +0 | 12 |
 | 👁 views        | 0 | 1 | 1 |
 | 📥 clones       | 0 | 12 | 12 |
-
----
-
-### `timf34/StainedGlassMap`
-
-| metric | last 30 d | last 12 mo | lifetime |
-|--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +0 | +0 | 2 |
-| 👁 views        | 0 | 0 | 0 |
-| 📥 clones       | 0 | 0 | 0 |
 
 ---
 
@@ -104,19 +74,9 @@
 
 | metric | last 30 d | last 12 mo | lifetime |
 |--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +16 | +158 | 384 |
+| ⭐ stars (total) | +0 | +0 | 226 |
 | 👁 views        | 0 | 47 | 47 |
 | 📥 clones       | 0 | 3 | 3 |
-
----
-
-### `timf34/UnifiedOpenAccessArt`
-
-| metric | last 30 d | last 12 mo | lifetime |
-|--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +0 | +0 | 2 |
-| 👁 views        | 0 | 0 | 0 |
-| 📥 clones       | 0 | 0 | 0 |
 
 ---
 
@@ -127,63 +87,3 @@
 | ⭐ stars (total) | +0 | +0 | 3 |
 | 👁 views        | 0 | 0 | 0 |
 | 📥 clones       | 0 | 1 | 1 |
-
----
-
-### `timf34/YouTubeSortByLikes`
-
-| metric | last 30 d | last 12 mo | lifetime |
-|--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +0 | +0 | 2 |
-| 👁 views        | 0 | 0 | 0 |
-| 📥 clones       | 0 | 0 | 0 |
-
----
-
-### `timf34/arxiv2md`
-
-| metric | last 30 d | last 12 mo | lifetime |
-|--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +13 | +70 | 73 |
-| 👁 views        | 0 | 0 | 0 |
-| 📥 clones       | 0 | 0 | 0 |
-
----
-
-### `timf34/ball-position-tracker`
-
-| metric | last 30 d | last 12 mo | lifetime |
-|--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +0 | +0 | 0 |
-| 👁 views        | 0 | 0 | 0 |
-| 📥 clones       | 0 | 0 | 0 |
-
----
-
-### `timf34/github-engagement-stats`
-
-| metric | last 30 d | last 12 mo | lifetime |
-|--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +1 | +2 | 5 |
-| 👁 views        | 0 | 0 | 0 |
-| 📥 clones       | 0 | 0 | 0 |
-
----
-
-### `timf34/pagesource`
-
-| metric | last 30 d | last 12 mo | lifetime |
-|--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +74 | +295 | 316 |
-| 👁 views        | 0 | 0 | 0 |
-| 📥 clones       | 0 | 0 | 0 |
-
----
-
-### `timf34/timf34.github.io`
-
-| metric | last 30 d | last 12 mo | lifetime |
-|--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +0 | +0 | 2 |
-| 👁 views        | 0 | 0 | 0 |
-| 📥 clones       | 0 | 0 | 0 |

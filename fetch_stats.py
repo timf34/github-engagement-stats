@@ -50,16 +50,28 @@ FIELDNAMES = [
 
 
 def _save_row(row: Dict, repo_full: str) -> bool:
-    """Append row to data/<owner>_<repo>.csv. Return True if new."""
+    """Append or update row in data/<owner>_<repo>.csv. Return True if changed."""
     csv_path = DATA_DIR / f"{repo_full.replace('/', '_')}.csv"
-    already_has_today = False
+
     if csv_path.exists():
-        for old in csv_path.read_text().splitlines():
+        lines = csv_path.read_text().splitlines()
+        for i, old in enumerate(lines):
             if old.startswith(row["date"]):
-                already_has_today = True
-                break
-    if already_has_today:
-        return False
+                # Overwrite if the existing row has zero traffic but new data doesn't
+                old_fields = old.split(",")
+                has_zero_traffic = len(old_fields) >= 8 and all(
+                    f == "0" for f in old_fields[4:8]
+                )
+                new_has_data = any(
+                    int(row[k]) > 0
+                    for k in ("clones", "unique_clones", "views", "unique_views")
+                )
+                if has_zero_traffic and new_has_data:
+                    new_line = ",".join(str(row[f]) for f in FIELDNAMES)
+                    lines[i] = new_line
+                    csv_path.write_text("\n".join(lines) + "\n")
+                    return True
+                return False
 
     with csv_path.open("a", newline="") as fh:
         writer = csv.DictWriter(fh, fieldnames=FIELDNAMES)
