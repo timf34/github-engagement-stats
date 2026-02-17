@@ -1,10 +1,10 @@
 # 📊 GitHub stats snapshot
 
-**Last run:** 2026-02-16
+**Last run:** 2026-02-17
 
 | metric | last 30 d | last 12 mo | lifetime |
 |--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +181 | +532 | 866 |
+| ⭐ stars (total) | +105 | +533 | 867 |
 | 👁 views        | 0 | 57 | 57 |
 | 📥 clones       | 0 | 18 | 18 |
 
@@ -104,7 +104,7 @@
 
 | metric | last 30 d | last 12 mo | lifetime |
 |--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +17 | +158 | 384 |
+| ⭐ stars (total) | +16 | +158 | 384 |
 | 👁 views        | 0 | 47 | 47 |
 | 📥 clones       | 0 | 3 | 3 |
 
@@ -164,7 +164,7 @@
 
 | metric | last 30 d | last 12 mo | lifetime |
 |--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +0 | +1 | 4 |
+| ⭐ stars (total) | +1 | +2 | 5 |
 | 👁 views        | 0 | 0 | 0 |
 | 📥 clones       | 0 | 0 | 0 |
 
@@ -174,7 +174,7 @@
 
 | metric | last 30 d | last 12 mo | lifetime |
 |--------|---------:|-----------:|---------:|
-| ⭐ stars (total) | +150 | +295 | 316 |
+| ⭐ stars (total) | +74 | +295 | 316 |
 | 👁 views        | 0 | 0 | 0 |
 | 📥 clones       | 0 | 0 | 0 |
 
