@@ -1,60 +1,51 @@
-# 📊 GitHub Engagement Stats
+# GitHub Engagement Stats
 
-**Nightly, dependency-free snapshots of ⭐ stars, 👁 views and 📥 clones for all your public repos – zero set-up.**  
-Also auto-generates a clean Markdown report with totals and per-repo breakdowns: [**see example ›**](stats.md)
+Nightly snapshots of stars, views, and clones for your public GitHub repos with no dependencies and minimal setup. Also generates a Markdown report with totals and per-repo breakdowns ([example](stats.md)).
 
-*By default the action discovers every public repo you own that has **≥ 2 stars**.  
-Want to track a different set? Just tell it!*
+By default it discovers every public repo you own with 2+ stars. You can override this if you want to track a different set.
 
----
+## Quick start
 
-## 🚀 Fork-and-forget in 3 clicks
+1. **Fork** this repo.
+2. **Enable Actions** when GitHub prompts you.
+3. Done. The workflow runs nightly at 00:07 UTC and appends one row per repo to `data/*.csv`. It also rebuilds `stats.md` as a simple dashboard.
 
-1. **Fork** this repo to your personal account or org.  
-2. Enable **Actions** when GitHub prompts you.  
-3. *(Optional)* Open **Settings → Variables** and tweak:
-   * `MIN_STARS` – raise/lower the auto-discover threshold (default **2**).
-   * `TARGET_REPOS` – comma-separated list like
-     `owner1/repoA,owner2/repoB` (adds or replaces the auto list).
-4. *(Optional)* Add a Personal Access Token with `public_repo` scope as
-   secret **PUBLIC_REPOS_TOKEN** if you want to collect traffic stats for
-   other repositories you own.
+You can trigger it manually via **Actions > "GitHub traffic snapshot" > Run workflow** if you don't want to wait.
 
-That’s it. The workflow runs every night at 00:07 UTC and appends one row per repo to `/data/*.csv`.  
-It also builds `/stats.md` as a lightweight dashboard of total/lifetime stats.
+### Optional: Personal Access Token
 
-Run it straight away via **Actions → “📊 GitHub traffic snapshot” → Run workflow** if you don’t want to wait.
+The default `GITHUB_TOKEN` can only see traffic for the current repository. If you want traffic stats across all your repos, create a PAT with `public_repo` scope and add it as a repository secret called `PUBLIC_REPOS_TOKEN`.
 
----
+### Optional: Configuration variables
 
-## 🔧 Customising
+In **Settings > Variables**, you can set:
 
-* **Track only certain repos** – set `TARGET_REPOS` (auto-discover still runs but the explicit list wins).  
-* **Include extra repos** – keep `TARGET_REPOS` empty and list them in `config.yml` instead; they’ll be *added* to the discovered set.  
-* **Change the schedule** – edit the `cron:` line in `.github/workflows/stats.yml`.  
-* **Stop committing from CI** – remove the final commit step in the workflow.
+- `MIN_STARS`: change the auto-discover threshold (default is 2)
+- `TARGET_REPOS`: comma-separated list like `owner1/repoA,owner2/repoB` to track specific repos instead of (or in addition to) the auto-discovered ones
 
-All configuration lives in **repo settings**. The workflow uses
-`secrets.PUBLIC_REPOS_TOKEN` when present; otherwise it falls back to the
-default `GITHUB_TOKEN`, which can only see the current repository's traffic.
+## Customising
 
----
+- **Track only specific repos**: set `TARGET_REPOS` and it takes priority over auto-discovery.
+- **Add extra repos**: leave `TARGET_REPOS` empty and list them in `config.yml` instead; they get merged with the discovered set.
+- **Change the schedule**: edit the `cron:` line in `.github/workflows/stats.yml`.
+- **Stop CI commits**: remove the final commit step in the workflow.
 
-## 🖥 Run locally 
+## Running locally
 
 ```bash
 git clone https://github.com/<you>/github-engagement-stats.git
 cd github-engagement-stats
 
-# 1.  Supply a Personal Access Token (only "public_repo" scope needed)
+# Supply a PAT (only "public_repo" scope needed)
 export GITHUB_TOKEN=ghp_yourTokenHere
 
-# 2.  Optional overrides
+# Optional overrides
 export MIN_STARS=1
 export TARGET_REPOS=you/special-repo
 
-# 3.  Snapshot!
+# Collect stats
 python fetch_stats.py
 
-# 4. Generate your markdown report
+# Generate the markdown report
 python generate_report.py
+```
